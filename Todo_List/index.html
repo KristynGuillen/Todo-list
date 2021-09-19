@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+</head>
+<body>
+  
+
+    <div class="content_title_top">
+        <h1>Todo List</h1>
+        <p>Juan ignacio Cáceres - Guillen Kristyn</p>
+    </div>
+
+<div class="form" id="form">
+   
+    <select id="categ" name="categ" style="margin:4px">
+        <option value="1">Categoria</option> 
+        <option >Trabajo</option> 
+        <option >Estudio</option>
+        <option >Alimentación</option> 
+        <option >Ejercicio</option> 
+        <option >Familia</option> 
+        <option>Amigos</option> 
+       </select>
+        <input id="tarea" name="tarea" style="margin:10px" type="text" placeholder="Que tarea deseas realizar?">
+   
+    <button id="btn_guardar" onclick="guardar()">+</button><br><br>
+
+   
+</div>
+       
+          
+
+
+<script src="./scripts.js"></script>
+
+<script>    
+
+    function guardar(){
+       
+    
+    const $texto = document.getElementById("tarea").value;
+    const $categ = document.getElementById("categ").value;
+    
+     const tareas = [];
+    
+        let tarea = {tarea: $texto};
+        let categ = {categoria: $categ};
+    
+        tareas.push(tarea,categ);
+        
+    
+        console.log(tareas);
+     
+        let fila="<div class='content_item'><div class='content_title_item2'>"+$categ+"</div><div class='content_title_item'>"+$texto+"</div></div>";
+        //let fila="<tr><td>"+$texto+"</td><td>"+$categ;
+    
+          var btn = document.createElement("div");
+          btn.innerHTML=fila;
+          document.getElementById("form").appendChild(btn);
+         
+        }
+              
+    </script>
+
+</body>
+</html>
